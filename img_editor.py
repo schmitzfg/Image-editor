@@ -541,39 +541,16 @@ def toggle_edge():
 
 
 
-
-
-
 def reset_all_values():
-    global brightness_value
-    global contrast_value
-    global saturation_value
-    global sharpness_value
-    global blur_value
-
-    global grayscale_value
-    global sepia_value
-    global filter_value
-
+    global brightness_value, contrast_value, saturation_value
+    global sharpness_value, blur_value
+    global grayscale_value, sepia_value, filter_value
     global posterize_bits
-
-    global resize_enabled
-    global resize_width
-    global resize_height
-
-    global vignette_value
-    global emboss_value
-    global vintage_value
-
-    global noise_value
-    global pixelate_value
-    global bloom_value
-
-    global kernel_sharpen_value
-    global gaussian_noise_value
-    global temperature_value
-    global edge_detect_value
-
+    global resize_enabled, resize_width, resize_height
+    global vignette_value, emboss_value, vintage_value
+    global noise_value, pixelate_value, bloom_value
+    global kernel_sharpen_value, gaussian_noise_value
+    global temperature_value, edge_detect_value
 
     brightness_value = 1
     contrast_value = 1
@@ -601,9 +578,33 @@ def reset_all_values():
 
     kernel_sharpen_value = 0
     gaussian_noise_value = 0
-
     temperature_value = 0
     edge_detect_value = False
+
+
+    # RESET UI SAFE
+    brightness_slider.set(1)
+    contrast_slider.set(1)
+    saturation_slider.set(1)
+    sharpness_slider.set(1)
+    blur_slider.set(0)
+
+    vintage_slider.set(0)
+    vignette_slider.set(0)
+    pixelate_slider.set(1)
+    bloom_slider.set(0)
+    temperature_slider.set(0)
+
+    grayscale_checkbox.deselect()
+    sepia_checkbox.deselect()
+    filter_checkbox.deselect()
+    edge_checkbox.deselect()
+    noise_checkbox.deselect()
+    emboss_checkbox.deselect()
+
+    # IMPORTANT
+    apply_adjustments()
+
 
     ## reset GUI sliders/checkboxes
     brightness_slider.set(1)
@@ -1184,7 +1185,20 @@ for preset in preset_names:
                         fg_color=BTN_COLOR,
                         font=("Arial",16,"bold"),
                         hover_color="#7ed6d4")
-    btn.pack(pady=20,padx=10,fill="x")
+    btn.pack(pady=20, padx=10, fill="x")
+
+
+
+## Reset Button
+reset_button = ctk.CTkButton(presets_tab,
+                            text="RESET",
+                            command=reset_all_values,
+                            fg_color="#28a745",
+                            font=("Comic Sans", 20, "bold"),
+                            text_color= TEXT_COLOR,
+                            hover_color="#34d058")
+reset_button.pack(pady=(5, 20), side="bottom", fill="x", expand=True)
+
 
 
 root.mainloop()
