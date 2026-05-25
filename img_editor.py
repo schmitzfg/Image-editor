@@ -690,14 +690,14 @@ def apply_preset(name):
 
 
 ## button animation
-def add_hover(button):
+def add_hover(button, normal_color, hover_color):
     button.bind("<Enter>", lambda e: button.configure(border_width=2,
                                                       text_color="lightgreen",
                                                       border_color="#4da6ff",
-                                                      fg_color="#004488"))
+                                                      fg_color=hover_color))
     button.bind("<Leave>",lambda e: button.configure(border_width=0,
                                                      text_color=TEXT_COLOR,
-                                                     fg_color=BTN_COLOR))
+                                                     fg_color=normal_color))
 
 
 
@@ -1200,7 +1200,7 @@ for preset in preset_names:
                         font=("Arial",16,"bold"),
                         hover_color="#7ed6d4")
     btn.pack(pady=20, padx=10, fill="x")
-    add_hover(btn)
+    add_hover(btn, BTN_COLOR, "#004488")
 
 
 
@@ -1212,8 +1212,8 @@ reset_button = ctk.CTkButton(presets_tab,
                             font=("Comic Sans", 20, "bold"),
                             text_color= TEXT_COLOR,
                             hover_color="#34d058")
-reset_button.pack(pady=(5, 20), side="bottom", fill="x")
-
+reset_button.pack(pady=(15, 20), side="bottom", fill="x")
+add_hover(reset_button, "#34d058", "#0ECD00")
 
 # add_hover(reset_button)
 
