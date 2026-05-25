@@ -691,8 +691,13 @@ def apply_preset(name):
 
 ## button animation
 def add_hover(button):
-    button.bind("<Enter>", lambda e: button.configure(border_width=2, text_color="lightgreen"))
-    button.bind("<Leave>",lambda e: button.configure(border_width=0, text_color=TEXT_COLOR))
+    button.bind("<Enter>", lambda e: button.configure(border_width=2,
+                                                      text_color="lightgreen",
+                                                      border_color="#4da6ff",
+                                                      fg_color="#004488"))
+    button.bind("<Leave>",lambda e: button.configure(border_width=0,
+                                                     text_color=TEXT_COLOR,
+                                                     fg_color=BTN_COLOR))
 
 
 
