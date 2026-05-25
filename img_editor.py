@@ -685,6 +685,17 @@ def apply_preset(name):
 
 
 
+
+
+
+
+## button animation
+def add_hover(button):
+    button.bind("<Enter>", lambda e: button.configure(border_width=2, text_color="lightgreen"))
+    button.bind("<Leave>",lambda e: button.configure(border_width=0, text_color=TEXT_COLOR))
+
+
+
 #### GUI ####
 ctk.set_appearance_mode("dark")     # dark / light / system
 # ctk.set_default_color_theme("green")
@@ -694,7 +705,6 @@ root = ctk.CTk()
 
 root.title("Simple Image Editor")
 root.after(0, lambda: root.state("zoomed"))
-
 
 
 # -------- MAIN CONTAINER ----------
@@ -716,6 +726,7 @@ left_right_button = ctk.CTkButton(left_frame,
                        text_color= TEXT_COLOR,
                        hover_color="#7ed6d4")
 left_right_button.pack(pady=10)
+# add_hover(left_right_button)
 
 
 rotate_button = ctk.CTkButton(left_frame,
@@ -726,6 +737,7 @@ rotate_button = ctk.CTkButton(left_frame,
                        text_color= TEXT_COLOR,
                        hover_color="#7ed6d4")
 rotate_button.pack(pady=10)
+# add_hover(rotate_button)
 
 
 
@@ -829,20 +841,17 @@ file_name_label = ctk.CTkLabel(middle_frame,
                      text="", font=("Comic Sans", 20, "bold"),
                      text_color = TEXT_COLOR,)
 file_name_label.pack(pady=5)
-###
+#######
 
 button_text = ctk.StringVar(value="Browse")
-button = ctk.CTkButton(middle_frame,
+button_browse = ctk.CTkButton(middle_frame,
                        textvariable=button_text,
                        command=open_image,
                        fg_color= BTN_COLOR,
                        font=("Comic Sans", 20, "bold"),
                        text_color= TEXT_COLOR,
-                       hover_color="#7ed6d4"
-                       )
-button.pack(pady=(5, 20), side="left", expand=True)
-##############
-
+                       hover_color="#7ed6d4")
+button_browse.pack(pady=(5, 20), side="left", expand=True)
 
 
 ##############
@@ -1186,6 +1195,7 @@ for preset in preset_names:
                         font=("Arial",16,"bold"),
                         hover_color="#7ed6d4")
     btn.pack(pady=20, padx=10, fill="x")
+    add_hover(btn)
 
 
 
@@ -1197,7 +1207,11 @@ reset_button = ctk.CTkButton(presets_tab,
                             font=("Comic Sans", 20, "bold"),
                             text_color= TEXT_COLOR,
                             hover_color="#34d058")
-reset_button.pack(pady=(5, 20), side="bottom", fill="x", expand=True)
+reset_button.pack(pady=(5, 20), side="bottom", fill="x")
+
+
+# add_hover(reset_button)
+
 
 
 
@@ -1219,17 +1233,9 @@ root.mainloop()
 
 
 
-
-# Dacă vrei, îți pot face și:
-# un UI tip Photoshop/Lightroom mai modern (sidebar + preset thumbnails)
-
-
-
 # Pot să-ți fac și:
 
 # icon images reale (PNG/SVG în tab buttons)
-# hover animations
-# preset thumbnails (Instagram style grid)
 # sidebar în loc de tabview (Lightroom style)
 
 
