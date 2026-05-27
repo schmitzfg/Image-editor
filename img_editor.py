@@ -729,7 +729,7 @@ left_right_button = ctk.CTkButton(left_frame,
                        fg_color= BTN_COLOR,
                        font=("Comic Sans", 20, "bold"),
                        text_color= TEXT_COLOR,
-                       hover_color="#7ed6d4")
+                       hover_color="lightseagreen",)
 left_right_button.pack(pady=10)
 # add_hover(left_right_button)
 
@@ -740,7 +740,7 @@ rotate_button = ctk.CTkButton(left_frame,
                        fg_color= BTN_COLOR,
                        font=("Comic Sans", 20, "bold"),
                        text_color= TEXT_COLOR,
-                       hover_color="#7ed6d4")
+                       hover_color="lightseagreen")
 rotate_button.pack(pady=10)
 # add_hover(rotate_button)
 
@@ -855,7 +855,7 @@ button_browse = ctk.CTkButton(middle_frame,
                        fg_color= BTN_COLOR,
                        font=("Comic Sans", 20, "bold"),
                        text_color= TEXT_COLOR,
-                       hover_color="#7ed6d4")
+                       hover_color="lightseagreen")
 button_browse.pack(pady=(5, 20), side="left", expand=True)
 
 
@@ -1041,6 +1041,19 @@ posterize_slider.pack(pady=(5, 20))
 
 
 
+
+## Reset Button
+reset_button = ctk.CTkButton(default_tab,
+                            text="RESET",
+                            command=reset_all_values,
+                            fg_color="#28a745",
+                            font=("Comic Sans", 20, "bold"),
+                            text_color= TEXT_COLOR,
+                            # hover_color="#34d058"
+                            )
+reset_button.pack(pady=(15, 20), side="bottom", fill="x")
+add_hover(reset_button, "#28a745", "#0ECD00")
+
 ####################### Advanced Tab ############################
 ## emboss
 emboss_checkbox = ctk.CTkCheckBox(advanced_tab,
@@ -1182,6 +1195,20 @@ temperature_slider.set(0)
 temperature_slider.pack(pady=(0,10))
 
 
+
+
+## Reset Button
+reset_button = ctk.CTkButton(advanced_tab,
+                            text="RESET",
+                            command=reset_all_values,
+                            fg_color="#28a745",
+                            font=("Comic Sans", 20, "bold"),
+                            text_color= TEXT_COLOR,
+                            # hover_color="#34d058"
+                            )
+reset_button.pack(pady=(15, 20), side="bottom", fill="x")
+add_hover(reset_button, "#28a745", "#0ECD00")
+
 #######################################
 ## Presets
 preset_names = [
@@ -1211,9 +1238,10 @@ reset_button = ctk.CTkButton(presets_tab,
                             fg_color="#28a745",
                             font=("Comic Sans", 20, "bold"),
                             text_color= TEXT_COLOR,
-                            hover_color="#34d058")
+                            # hover_color="#34d058"
+                            )
 reset_button.pack(pady=(15, 20), side="bottom", fill="x")
-add_hover(reset_button, "#34d058", "#0ECD00")
+add_hover(reset_button, "#28a745", "#0ECD00")
 
 # add_hover(reset_button)
 
@@ -1257,8 +1285,3 @@ root.mainloop()
 #     # image = adjust_contrast(image, 1.4)             # 0-1 negativ, over 1 positiv
 #     # image = add_filters(image, bits=4)              # bits = 8 - original, 4 - posterizare vizibilă, 2 - foarte dur, 1 - black and white 
 #     return image
-
-
-# # im = Image.open("meee.png")
-# # optimised_image = optimise_image(im)
-# # optimised_image.save("image.png")
