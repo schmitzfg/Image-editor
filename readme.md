@@ -113,4 +113,11 @@ Output:
 ## Author
 Nicolae D
 
+## Usage
+
+Anyone is free to use, modify, and learn from this code for non-commercial purposes.
+
+Commercial use is not permitted without permission from the author.
+
+
 Personal Python project created for learning image processing, GUI development, and Pillow image manipulation.
